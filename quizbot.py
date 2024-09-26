@@ -3,12 +3,16 @@ from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 import logging
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('BOT_TOKEN')
+
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
-
-TOKEN = '7644006174:AAE4e8HfLzUeNUpF4TuNq2pmDtb9hev3Mvo'
 
 # Состояния разговора
 QUESTION, RETRY = range(2)
